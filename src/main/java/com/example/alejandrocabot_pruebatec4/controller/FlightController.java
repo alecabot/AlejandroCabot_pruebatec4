@@ -68,7 +68,7 @@ public class FlightController {
             @ApiResponse(responseCode = "404", description = "No results found in the flight")
     })
     @GetMapping
-    public ResponseEntity<List<FlightDTO>> getHotelsOrRooms(
+    public ResponseEntity<List<FlightDTO>> getFlightsOrFlightsAvailability(
             @RequestParam(required = false) String dateFrom,
             @RequestParam(required = false) String dateTo,
             @RequestParam(required = false) String place,
