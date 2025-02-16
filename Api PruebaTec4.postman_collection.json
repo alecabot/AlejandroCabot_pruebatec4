@@ -1,0 +1,472 @@
+{
+	"info": {
+		"_postman_id": "f72959c5-4892-460f-a4f8-f66a8e6646ed",
+		"name": "Api PruebaTec4",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35336654"
+	},
+	"item": [
+		{
+			"name": "Obtener un listado de hoteles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/hotels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un listado de habitaciones por fecha y destino",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/hotels?dateFrom=2001-11-22&dateTo=2025-11-22&place=barcelona",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotels"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "2001-11-22"
+						},
+						{
+							"key": "dateTo",
+							"value": "2025-11-22"
+						},
+						{
+							"key": "place",
+							"value": "barcelona"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Realizar una reserva de un habitación",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nights\": 6,\r\n  \"peopleQ\": 2,\r\n  \"hosts\": [\r\n    {\r\n      \"lastName\": \"Cabot\",\r\n      \"name\": \"Alejandro\",\r\n      \"age\": 23\r\n    },\r\n    {\r\n      \"lastName\": \"Lopez\",\r\n      \"name\": \"Javier\",\r\n      \"age\": 27\r\n    }\r\n  ],\r\n  \"dateTo\": \"2025-02-14\",\r\n  \"place\": \"Miami\",\r\n  \"hotelId\": 1,\r\n  \"dateFrom\": \"2025-02-14\",\r\n  \"hotelCode\": \"AR-0002\",\r\n  \"roomType\": \"Single\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/agency/flight-booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flight-booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un listado vuelos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/flights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un listado de todos los vuelos disponibles por fecha ida y vuelta y origen y destino",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/flights?dateFrom=2020-02-05&dateTo=2025-03-06&place=Miami&destination=Madrid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flights"
+					],
+					"query": [
+						{
+							"key": "dateFrom",
+							"value": "2020-02-05"
+						},
+						{
+							"key": "dateTo",
+							"value": "2025-03-06"
+						},
+						{
+							"key": "place",
+							"value": "Miami"
+						},
+						{
+							"key": "destination",
+							"value": "Madrid"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Realizar una reserva de un vuelo, indicando cantidad de personas, origen, destino y fecha de ida",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"date\" : \"2025-02-14\",\r\n  \"seatType\" : \"Economy\",\r\n  \"passengers\" : [ \r\n   {\r\n      \"lastName\": \"Acot\",\r\n      \"name\": \"Alejandro\",\r\n      \"age\": 23\r\n    },\r\n    {\r\n      \"lastName\": \"Lopez\",\r\n      \"name\": \"Javier\",\r\n      \"age\": 27\r\n    }\r\n  ],\r\n  \"flightCode\" : \"BAMI-1235\",\r\n  \"peopleQ\" : 2,\r\n  \"origin\" : \"Barcelona\",\r\n  \"destination\" : \"Miami\",\r\n  \"flightId\" : 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/agency/flight-booking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flight-booking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener hotel por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/hotels/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotels",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Hotel",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hackaboss",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"roomPrice\": 100.0,\r\n  \"name\": \"Hotel Example\",\r\n  \"dateTo\": \"2025-02-16\",\r\n  \"isBooked\": false,\r\n  \"place\": \"Example City\",\r\n  \"hotelId\": 1,\r\n  \"hotelCode\": \"EX123\",\r\n  \"dateFrom\": \"2025-02-10\",\r\n  \"roomType\": \"Single\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/agency/hotels/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotels",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Hotel",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hackaboss",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"roomPrice\": 100.0,\r\n  \"name\": \"Hotel Example\",\r\n  \"dateTo\": \"2025-02-16\",\r\n  \"isBooked\": false,\r\n  \"place\": \"Example City\",\r\n  \"hotelId\": 1,\r\n  \"hotelCode\": \"EX123\",\r\n  \"dateFrom\": \"2025-02-10\",\r\n  \"roomType\": \"Single\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/agency/hotels",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Hotel",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hackaboss",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/hotels/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"hotels",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener vuelo por id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/flights/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flights",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Vuelo",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hackaboss",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"seatType\": \"Economy\",\r\n  \"returnDate\": \"2025-02-20\",\r\n  \"flightPrice\": 500.0,\r\n  \"origin\": \"New York\",\r\n  \"destination\": \"Los Angeles\",\r\n  \"departureDate\": \"2025-02-15\",\r\n  \"flightNumber\": \"NY123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/agency/flights/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flights",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Vuelo",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hackaboss",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"seatType\": \"Business\",\r\n  \"returnDate\": \"2025-02-20\",\r\n  \"flightPrice\": 750.0,\r\n  \"origin\": \"Madrid\",\r\n  \"destination\": \"Barcelona\",\r\n  \"departureDate\": \"2025-02-15\",\r\n  \"flightNumber\": \"MB456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/agency/flights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Vuelo",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "hackaboss",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/agency/flights/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"agency",
+						"flights",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
