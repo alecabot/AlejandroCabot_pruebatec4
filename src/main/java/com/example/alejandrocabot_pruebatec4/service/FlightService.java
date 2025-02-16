@@ -65,7 +65,7 @@ public class FlightService implements IFlightService{
                 .orElseThrow(() -> new NotFoundException("Flight with ID " + id + " not found."));
 
         // Verifica si el vuelo tiene reservas asociadas, si es así lanza una excepción
-        if (flight.getFlightReservations() != null) {
+        if (!flight.getFlightReservations().isEmpty()) {
             throw new NotDeletedException("The flight has associated reservations and cannot be deleted.");
         }
         flightRepository.delete(flight);
