@@ -19,31 +19,30 @@ public class HostService implements IHostService{
     HostRepository hostRepository;
 
     @Override
-    public HostDTO createHost(HostDTO hostRequest) {
+    public HostDTO createHost(Host hostRequest) {
         // Convierte el DTO de la solicitud de host a una entidad y guarda el host en el repositorio
-        hostRepository.save(convertToEntity(hostRequest));
+        hostRepository.save(hostRequest);
         // Devuelve el DTO del host creado
-        return hostRequest;
+        return convertToDto(hostRequest);
     }
 
     @Override
-    public HostDTO updateHost(HostDTO hostRequest, Long id) {
+    public HostDTO updateHost(Host hostRequest, Long id) {
         // Verifica si el host existe, si no lanza una excepción
         hostRepository.findById(id).orElseThrow(() -> new NotFoundException("Host with ID " + id + " not found."));
 
         // Convierte el DTO del host a una entidad y establece el ID
-        Host host = convertToEntity(hostRequest);
-        host.setId(id);
+        hostRequest.setId(id);
 
         // Guarda el host actualizado en el repositorio
         try {
-            hostRepository.save(host);
+            hostRepository.save(hostRequest);
         } catch (Exception e) {
             throw new SaveException("Error saving the passenger");
         }
 
         // Devuelve el DTO del host actualizado
-        return convertToDto(host);
+        return convertToDto(hostRequest);
     }
 
     public HostDTO convertToDto(Host host) {

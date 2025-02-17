@@ -16,20 +16,19 @@ public class PassengerService implements IPassengerService {
     PassengerRepository passengerRepository;
 
     @Override
-    public PassengerDTO createPassenge(PassengerDTO passengerRequest) {
+    public PassengerDTO createPassenge(Passenger passengerRequest) {
         // Convierte el DTO de la solicitud de pasajero a una entidad y guarda el pasajero en el repositorio
-        passengerRepository.save(convertToEntity(passengerRequest));
+        passengerRepository.save(passengerRequest);
         // Devuelve el DTO del pasajero creado
-        return passengerRequest;
+        return convertToDto(passengerRequest) ;
     }
 
     @Override
-    public PassengerDTO updatePassenger(PassengerDTO passengerRequest, Long id) {
+    public PassengerDTO updatePassenger(Passenger passenger, Long id) {
         // Verifica si el pasajero existe, si no lanza una excepción
         passengerRepository.findById(id).orElseThrow(() -> new NotFoundException("Passenger with ID " + id + " not found."));
 
         // Convierte el DTO del pasajero a una entidad y establece el ID
-        Passenger passenger = convertToEntity(passengerRequest);
         passenger.setId(id);
 
         // Guarda el pasajero actualizado en el repositorio

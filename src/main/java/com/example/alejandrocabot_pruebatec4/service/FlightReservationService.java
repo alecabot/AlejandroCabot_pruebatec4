@@ -63,18 +63,20 @@ public class FlightReservationService implements IFlightReservationService{
 
         // Guarda la reserva de vuelo en el repositorio
         try {
-            flightReservationRepository.save(flightReservation);
+            FlightReservation flightReservationSave = flightReservationRepository.save(flightReservation);
+            // Guarda los pasajeros asociados a la reserva de vuelo
+            if (flightReservation.getPassengers() != null) {
+                flightReservation.getPassengers().forEach(passenger -> {
+                    passenger.setFlightReservation(flightReservation);
+                    passenger.getFlightReservation().setId(flightReservationSave.getId());
+                    passengerService.createPassenge(passenger);
+                });
+            }
         } catch (Exception e) {
             throw new SaveException("Error saving the flight");
         }
 
-        // Guarda los pasajeros asociados a la reserva de vuelo
-        if (flightReservation.getPassengers() != null) {
-            flightReservation.getPassengers().forEach(passenger -> {
-                passenger.setFlightReservation(flightReservation);
-                passengerService.createPassenge(passengerService.convertToDto(passenger));
-            });
-        }
+
 
         // Calcula y devuelve el monto total de la reserva de vuelo
         return flight.getFlightPrice() * flightReservation.getPeopleQ();

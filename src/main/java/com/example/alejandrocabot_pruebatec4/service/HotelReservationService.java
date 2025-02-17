@@ -64,19 +64,23 @@ public class HotelReservationService implements IHotelReservationService{
         hotelReservation.setHotel(hotel);
 
         // Guarda la reserva de hotel en el repositorio
+
         try {
-            hotelReservationRepository.save(hotelReservation);
+            HotelReservation hotelReservationSave = hotelReservationRepository.save(hotelReservation);
+
+            // Guarda los anfitriones asociados a la reserva de hotel
+            if (hotelReservation.getHosts() != null) {
+                hotelReservation.getHosts().forEach(host -> {
+                    host.setHotelReservation(hotelReservation);
+                    host.getHotelReservation().setId(hotelReservationSave.getId());
+                    hostService.createHost(host);
+                });
+            }
         } catch (Exception e) {
             throw new SaveException("Error saving the Hotel Reservation");
         }
 
-        // Guarda los anfitriones asociados a la reserva de hotel
-        if (hotelReservation.getHosts() != null) {
-            hotelReservation.getHosts().forEach(host -> {
-                host.setHotelReservation(hotelReservation);
-                hostService.createHost(hostService.convertToDto(host));
-            });
-        }
+
 
         // Calcula y devuelve el monto total de la reserva de hotel
         return hotel.getRoomPrice() * hotelReservation.getNights() * hotelReservation.getPeopleQ();

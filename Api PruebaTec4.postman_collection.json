@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f72959c5-4892-460f-a4f8-f66a8e6646ed",
+		"_postman_id": "eeee19e7-4f29-4b80-8985-e06e413d095b",
 		"name": "Api PruebaTec4",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "35336654"
@@ -67,7 +67,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"nights\": 6,\r\n  \"peopleQ\": 2,\r\n  \"hosts\": [\r\n    {\r\n      \"lastName\": \"Cabot\",\r\n      \"name\": \"Alejandro\",\r\n      \"age\": 23\r\n    },\r\n    {\r\n      \"lastName\": \"Lopez\",\r\n      \"name\": \"Javier\",\r\n      \"age\": 27\r\n    }\r\n  ],\r\n  \"dateTo\": \"2025-02-14\",\r\n  \"place\": \"Miami\",\r\n  \"hotelId\": 1,\r\n  \"dateFrom\": \"2025-02-14\",\r\n  \"hotelCode\": \"AR-0002\",\r\n  \"roomType\": \"Single\"\r\n}",
+					"raw": "{\r\n  \"nights\": 6,\r\n  \"peopleQ\": 2,\r\n  \"hosts\": [\r\n    {\r\n      \"lastName\": \"Cabot\",\r\n      \"name\": \"Alejandro\",\r\n      \"age\": 23\r\n    },\r\n    {\r\n      \"lastName\": \"Lopez\",\r\n      \"name\": \"Javier\",\r\n      \"age\": 27\r\n    }\r\n  ],\r\n  \"dateTo\": \"2025-02-14\",\r\n  \"place\": \"Miami\",\r\n  \"hotelId\": 6,\r\n  \"dateFrom\": \"2025-02-14\",\r\n  \"hotelCode\": \"AR-0002\",\r\n  \"roomType\": \"Single\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -75,7 +75,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/agency/flight-booking",
+					"raw": "http://localhost:8080/agency/room-booking",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -83,7 +83,7 @@
 					"port": "8080",
 					"path": [
 						"agency",
-						"flight-booking"
+						"room-booking"
 					]
 				}
 			},
