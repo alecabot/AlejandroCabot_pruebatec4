@@ -110,7 +110,7 @@ public class HotelService implements IHotelService{
 
         // Busca habitaciones disponibles según los criterios proporcionados y las convierte a DTO
         List<HotelDTO> hotels = hotelRepository
-                .findByDateFromLessThanEqualAndDateToGreaterThanEqualAndIsBookedIsFalseAndPlaceContainsIgnoreCase(
+                .findByDateFromLessThanEqualAndDateToGreaterThanEqualAndIsBookedIsFalseAndPlace(
                         dateTo, dateFrom, place
                 )
                 .stream()

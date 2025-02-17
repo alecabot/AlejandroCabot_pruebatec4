@@ -3,16 +3,18 @@ package com.example.alejandrocabot_pruebatec4.service;
 import com.example.alejandrocabot_pruebatec4.dto.FlightDTO;
 import com.example.alejandrocabot_pruebatec4.model.Flight;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@SpringBootTest
 public class FlightServiceTest {
     private final FlightService flightService = new FlightService();
 
     @Test
-    void testConvertToDto() {
+    void testConvertToDtoExito() {
         // Crea una entidad Flight
         Flight flight = Flight.builder()
                 .flightNumber("FL123")
@@ -38,7 +40,7 @@ public class FlightServiceTest {
     }
 
     @Test
-    void testConvertToEntity() {
+    void testConvertToEntityExisto() {
         // Crea un DTO FlightDTO
         FlightDTO flightDTO = FlightDTO.builder()
                 .flightNumber("FL123")

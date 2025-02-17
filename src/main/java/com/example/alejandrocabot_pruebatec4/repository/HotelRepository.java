@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface HotelRepository extends JpaRepository<Hotel, Long> {
     List<Hotel> findByDateFromLessThanEqualAndDateToGreaterThanEqualAndIsBookedIsFalseAndPlaceContainsIgnoreCase(LocalDate dateFrom, LocalDate dateTo, String place);
+    List<Hotel> findByDateFromLessThanEqualAndDateToGreaterThanEqualAndIsBookedIsFalseAndPlace(LocalDate disponibleDesde, LocalDate disponibleHasta, String ubicacion);
 
 }
