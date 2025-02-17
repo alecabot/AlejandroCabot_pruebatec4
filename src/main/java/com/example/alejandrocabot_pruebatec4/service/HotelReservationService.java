@@ -93,7 +93,7 @@ public class HotelReservationService implements IHotelReservationService{
                 .orElseThrow(() -> new NotFoundException("HotelReservation with ID " + id + " not found."));
 
         hotelReservation.getHotel().setIsBooked(false);
-        hotelService.updateHotel(hotelService.convertToDto(hotelReservation.getHotel()), id);
+        hotelService.updateHotel(hotelService.convertToDto(hotelReservation.getHotel()), hotelReservation.getHotel().getId());
 
         hotelReservationRepository.delete(hotelReservation);
         return convertToDto(hotelReservation);
